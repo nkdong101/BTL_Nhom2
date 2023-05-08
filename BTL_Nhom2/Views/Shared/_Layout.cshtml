@@ -1,39 +1,241 @@
 ﻿<!DOCTYPE html>
-<html>
+<html xmlns="https://www.w3.org/1999/xhtml" lang="vi">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-</head>
-<body>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-        <div class="container">
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("About", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        Nước hoa cao cấp
+    </title>
+    <script src="~/wwwroot/js/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet">
+    <link rel="stylesheet" href="~/wwwroot/css/theme/ditacom_index.css" />
+    <link rel="stylesheet" href="~/wwwroot/css/theme/ditacom_pulic.css" />
+    <link rel="stylesheet" href="~/wwwroot/css/index.css" />
+    <link href="~/wwwroot/css/drop_down.css" rel="stylesheet" />
+    @RenderSection("ImportLibraryLogin", required: false)
+    <style>
+        .active {
+            background: green;
+        }
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+            .active:hover {
+                background: green !important;
+            }
+
+            .active a {
+                color: white !important;
+            }
+
+        .logo_web {
+            position: relative;
+            padding: 0;
+            margin: 0;
+            width: auto;
+            margin: 0 auto;
+        }
+
+        .shopping-cart {
+            display: flex;
+            align-items: center;
+            background: #f3f3f3;
+            box-shadow: 0 0 2px #999999;
+            height: 50px;
+            padding: 5px 5px 0px 5px;
+            width: 127px;
+        }
+
+        @@media (min-width: 980px) and (max-width: 1080px) {
+            .logo_web {
+                width: 1000px;
+            }
+        }
+
+        @@media (min-width: 1080px) {
+            .logo_web {
+                width: 1200px;
+            }
+        }
+    </style>
+</head>
+<body class="bg_full">
+    <div class="logo_web" style="">
+        <img src="~/wwwroot/image/logo.png" style="position:absolute;top:-6px!important;left:0;
+                                padding:0;margin:0;height:4.3rem;width:4rem;" />
+    </div>
+    <!-------------------------------------header--------------------------------------------->
+    <section class="section_all top_full" id="page_bg" style="">
+        <div class="div_index" id="page_width">
+            <article class="article_center">
+                <!--<div class="index_top top_full">
+                                @*
+
+                    <!--@if (Session["TenTaiKhoan"] != null)
+                    {
+                        <div class="header_lang">-->
+                            @*<a href="@Url.Action("DetailAccount","Home", new {TenTaiKhoan= Session["TenTaiKhoan"]})" title="Xem thông tin tài khoản">Xin chào, @Session["TenTaiKhoan"] </a>
+                                <!--<a href="@Url.Action("DetailAccount","Home")" title="Xem thông tin tài khoản">Xin chào, @Session["TenTaiKhoan"] </a>|
+                        <a href="@Url.Action("LogOut","Home")" title="">Đăng xuất</a>
+                    </div>
+                }
+                else
+                {
+                    <div class="header_lang">
+                        <a href="@Url.Action("Signin","Home")" title=""> Đăng Ký </a> |
+                        <a href="@Url.Action("Login","Home")" title=""> Đăng Nhập </a>
+                    </div>
+                }-->
+                                *@
+
+                            </div>-->
+            </article>
+        </div>
+    </section>
+    <!-------------------------------------menu--------------------------------------------->
+    <section class="section_all menu_full" id="page_bg">
+        <div class="div_index" id="page_width">
+            <article class="article_center">
+                <div class="index_info menu_full">
+                    <div class="index_header">
+                        <div class="index_header_left">
+                            <a href="#"
+                               title=""
+                               style="float: left;">
+                            </a>
+                        </div>
+                        <div class="index_header_right" style="height: auto !important">
+                            <div class="shopping-cart">
+                                <a href="@Url.Action("GioHang", "Home")" id="GioHang">
+                                    @if (Session["SoLuongSPGioHang"] == null)
+                                    {
+                                        <span>Giỏ hàng</span> <strong>0</strong>
+                                    }
+                                    else
+                                    {
+                                        <span>Giỏ hàng</span> <strong>@Session["SoLuongSPGioHang"]</strong>
+                                    }
+
+                                </a>
+                                <img src="/wwwroot/image/gio_hang.png" />
+                            </div>
+                            <div class="div_search">
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.TextBox("searchString")
+                                    <input type="submit"
+                                           placeholder="Nhập nôi dung tìm kiếm"
+                                           name="button"
+                                           id="button"
+                                           value="TÌM KIẾM"
+                                           class="div_search_submit" />
+                                }
+                            </div>
+                            <div class="boloc">
+                                <ul class="ul_menu_pc" id="none_display_mb">
+                                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Home"? "active" : "") ul_menu_pc_border_active">
+                                        <a href="@Url.Action("Home","Home")" title="Trang chủ">Trang chủ</a>
+                                    </li>
+                                    <li class="ul_menu_pc_border_active @(ViewContext.RouteData.Values["Action"].ToString() == "About"? "active" : "")">
+                                        <a title="Giới thiệu" href="@Url.Action("About","Home")">Giới thiệu </a>
+                                    </li>
+                                    <li class="ul_menu_pc_border_active @(ViewContext.RouteData.Values["Action"].ToString() == "Index"? "active" : "")">
+                                        <a title="Danh mục" href="@Url.Action("Index","Home")">Danh mục </a>
+                                        <ul class="mn_child ul_menu_pc_ul">
+                                            @*@{
+                                                Html.RenderAction("_DanhMuc", "Home");
+                                            }*@
+                                        </ul>
+                                    </li>
+                                    <li class="ul_menu_pc_border_active">
+                                        <a href="#">Lọc theo giá </a>
+                                        <ul class="mn_child ul_menu_pc_ul">
+                                            <li>
+                                                <a href="@Url.Action("Index","Home",new { beginPrice = 1000000, endPrice = 0})">Dưới 1000.000 VNĐ</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Index","Home",new { beginPrice = 1000000, endPrice = 3000000})">1000.000 VNĐ - 3000.000 VNĐ</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Index","Home",new {beginPrice = 0, endPrice = 3000000})">Trên 3000.000 VNĐ</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+        <div class="dropdown" style="float:right">
+            <span class="material-icons" style="font-size: 37px; cursor: pointer;
+                    margin-right: 17px;margin-top:10px;">
+                account_box
+            </span>
+            @if (Session["TenTaiKhoan"] == null)
+            {
+                <div class="dropdown-content">
+                    <a href="@Url.Action("Signin","Home")">Đăng ký</a>
+                    <a href="@Url.Action("Login","Home")">Đăng nhập</a>
+                </div>
+            }
+            else
+            {
+                <div class="dropdown-content">
+                    <a href="@Url.Action("EditAccount","Home", new {TenTK= Session["TenTaiKhoan"]})">Sửa thông tin cá nhân</a>
+                    <a href="@Url.Action("ChangePassword","Home", new {TenTK= Session["TenTaiKhoan"] })">Đổi mật khẩu</a>
+                    <a href="@Url.Action("ViewOrder","Home",new {TenTK= Session["TenTaiKhoan"]})">Xem đơn hàng</a>
+                    <a href="@Url.Action("LogOut","Home")">Đăng xuất</a>
+                </div>
+            }
+        </div>
+    </section>
+    <!-------------------------------------banner--------------------------------------------->
+    <!-------------------------------------Body--------------------------------------------->
+    @RenderBody()
+
+    ﻿<!-------------------------------------Footer--------------------------------------------->
+    <section class="section_all" id="page_bg">
+        <div class="div_index" id="page_width">
+            <article class="article_center">
+                <div class="index_info"
+                     style="margin-bottom: -50px; z-index: 0; position: relative">
+                    <div class="index_1" style="margin-bottom: 0px">
+                        <ul class="ul_menu_footer">
+                            <li>
+                                <a title="Hướng dẫn mua hàng" href="#"><span>&bull; Hướng dẫn mua hàng</span></a>
+                            </li>
+                            <li>
+                                <a title="Hướng dẫn thanh toán" href="#"><span>&bull; Hướng dẫn thanh toán</span></a>
+                            </li>
+                            <li>
+                                <a title="Phương thức giao hàng" href="#"><span>&bull; Phương thức giao hàng</span></a>
+                            </li>
+                            <li>
+                                <a title="Thông tin khuyến mãi" href="#"><span>&bull; Thông tin khuyến mãi</span></a>
+                            </li>
+                            <li>
+                                <a title="Chính sách đổi trả" href="#"><span>&bull; Chính sách đổi trả</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
 </body>
+<script src="~/wwwroot/js/index.js"></script>
+@RenderSection("Scripts", required: false)
+<script>
+    var header = document.getElementById("none_display_mb");
+    var lis = header.getElementsByClassName("ul_menu_pc_border_active");
+    for (var i = 0; i < lis.length; i++) {
+        lis[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+</script>
 </html>

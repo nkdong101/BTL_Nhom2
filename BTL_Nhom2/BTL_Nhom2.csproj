@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -46,10 +47,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -168,6 +169,43 @@
     <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="wwwroot\css\bootstrap.css" />
+    <Content Include="wwwroot\css\bootstrap.min.css" />
+    <Content Include="wwwroot\css\drop_down.css" />
+    <Content Include="wwwroot\css\font-awesome.min.css.css" />
+    <Content Include="wwwroot\css\index.css" />
+    <Content Include="wwwroot\css\style.css" />
+    <Content Include="wwwroot\css\theme\ditacom_index.css" />
+    <Content Include="wwwroot\css\theme\ditacom_pulic.css" />
+    <Content Include="wwwroot\image\Chanel_Bleu.jpg" />
+    <Content Include="wwwroot\image\Chanel_Chance.jpg" />
+    <Content Include="wwwroot\image\Chanel_Coco.jpg" />
+    <Content Include="wwwroot\image\Chanel_No5.jpg" />
+    <Content Include="wwwroot\image\Channel_No19.png" />
+    <Content Include="wwwroot\image\Dior_Homme.jpg" />
+    <Content Include="wwwroot\image\Dior_j.jpg" />
+    <Content Include="wwwroot\image\Dior_joy.jpg" />
+    <Content Include="wwwroot\image\Dior_Miss.jpg" />
+    <Content Include="wwwroot\image\Dior_Rose.jpg" />
+    <Content Include="wwwroot\image\gio_hang.png" />
+    <Content Include="wwwroot\image\Gucci_Bloom.jpg" />
+    <Content Include="wwwroot\image\Gucci_Flora.jpg" />
+    <Content Include="wwwroot\image\Gucci_Guilty.jpg" />
+    <Content Include="wwwroot\image\Gucci_Moonlight.jpg" />
+    <Content Include="wwwroot\image\Gucci_the_eyes.jpg" />
+    <Content Include="wwwroot\image\logo.png" />
+    <Content Include="wwwroot\image\MiuMiu_Eau.jpg" />
+    <Content Include="wwwroot\image\MiuMiu_Fleur.jpg" />
+    <Content Include="wwwroot\image\MiuMiu_Per.jpg" />
+    <Content Include="wwwroot\image\YSL_Eau.jpg" />
+    <Content Include="wwwroot\image\YSL_Lau.jpg" />
+    <Content Include="wwwroot\image\YSL_Libre.jpg" />
+    <Content Include="wwwroot\image\YSL_Mon.jpg" />
+    <Content Include="wwwroot\js\bootstrap.min.js" />
+    <Content Include="wwwroot\js\change_password.js" />
+    <Content Include="wwwroot\js\index.js" />
+    <Content Include="wwwroot\js\jquery.min.js" />
+    <Content Include="wwwroot\js\popper.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -188,11 +226,15 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_CT_GioHang.cshtml" />
+    <Content Include="Views\Shared\_DanhMuc.cshtml" />
+    <Content Include="Views\Shared\_DC_GiaoHang.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_SearchDanhMuc.cshtml" />
+    <Content Include="Views\Shared\_SP_BanChay.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -257,7 +299,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

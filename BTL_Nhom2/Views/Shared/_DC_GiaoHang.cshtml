@@ -1,0 +1,15 @@
+﻿@model BTL_Nhom2.Models.TaiKhoan
+<ul>
+    @if (Session["TaiKhoan"] != null)
+    {
+        using (Html.BeginForm("DatHang", "Home"))
+        {
+            <li><input type="text" id="firstname" name="firstname" size="50" value="@Model.TenKhachHang" placeholder="Họ và Tên *" class="dita_input_350 dita_input_width">	</li>
+            <li><input type="text" id="mobile" name="mobile" size="50" value="@Model.SoDienThoai" placeholder="Điện Thoại *" class="dita_input_350 dita_input_width" onkeyup="valid(this,'notnumbers')" maxlength="20"></li>
+            <li><input type="text" id="address" name="address" size="50" value="@Model.DiaChi" placeholder="Địa Chỉ  *" class="dita_input_350 dita_input_width"></li>
+            <li><textarea cols="76" rows="10" id="DcGiaoHang" class="dita_input_350 dita_input_width" placeholder="Địa chỉ giao hàng " style="height:50px" maxlength="200"></textarea></li>
+            <li><textarea cols="76" rows="10" id="GhiChu" class="dita_input_350 dita_input_width" placeholder="Ghi Chú" style="height:100px" maxlength="200"></textarea></li>
+        }
+    }
+</ul>
+
