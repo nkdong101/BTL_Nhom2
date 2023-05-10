@@ -23,7 +23,7 @@
 
         [Column(TypeName = "money")]
         [DisplayFormat(DataFormatString = "{0:#,###}")]
-        [DisplayName("Phí vận chuyển")]]
+        [DisplayName("Phí vận chuyển")]
         public decimal PhiShip { get; set; }
 
         [Column(TypeName = "ntext")]
