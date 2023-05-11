@@ -127,9 +127,7 @@
                                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Home"? "active" : "") ul_menu_pc_border_active">
                                         <a href="@Url.Action("Home","Home")" title="Trang chủ">Trang chủ</a>
                                     </li>
-                                    @*<li class="ul_menu_pc_border_active @(ViewContext.RouteData.Values["Action"].ToString() == "About"? "active" : "")">
-                                        <a title="Giới thiệu" href="@Url.Action("About","Home")">Giới thiệu </a>
-                                    </li>*@
+                                    
                                     <li class="ul_menu_pc_border_active @(ViewContext.RouteData.Values["Action"].ToString() == "Index"? "active" : "")">
                                         <a title="Danh mục" href="@Url.Action("Index","Home")">Danh mục </a>
                                         <ul class="mn_child ul_menu_pc_ul">
@@ -175,9 +173,7 @@
             else
             {
                 <div class="dropdown-content">
-                    @*<a href="@Url.Action("EditAccount","Home", new {TenTK= Session["TenTaiKhoan"]})">Sửa thông tin cá nhân</a>
-                    <a href="@Url.Action("ChangePassword","Home", new {TenTK= Session["TenTaiKhoan"] })">Đổi mật khẩu</a>
-                    <a href="@Url.Action("ViewOrder","Home",new {TenTK= Session["TenTaiKhoan"]})">Xem đơn hàng</a>*@
+                    
                     <a href="@Url.Action("signOut","Home")">Đăng xuất</a>
                 </div>
             }
