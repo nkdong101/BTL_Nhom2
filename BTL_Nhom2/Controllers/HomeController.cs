@@ -73,7 +73,7 @@ namespace BTL_Nhom2.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(string TenTaiKhoan, string MatKhau)
         {
-            
+
 
             if (string.IsNullOrEmpty(TenTaiKhoan))
             {
@@ -139,6 +139,32 @@ namespace BTL_Nhom2.Controllers
             //ViewBag.Infor = taiKhoan.ToString();
             return View(taiKhoan);
         }
+
+        public ActionResult DetailProduct(int? masp)
+        {
+            if (masp == 0)
+            {
+                return View("Index", db.SanPhams.ToList().ToPagedList(1, 10));
+            }
+            SanPham sp = db.SanPhams.Find(masp);
+            if (sp == null)
+            {
+                return HttpNotFound();
+            }
+            return View(sp);
+        }
+
+        public PartialViewResult _DanhMuc()
+        {
+            var danhmuc = db.DanhMucs.Select(d => d);
+            return PartialView(danhmuc);
+        }
+
+        public PartialViewResult _SP_BanChay()
+        {
+            var sp = db.SanPhams.Select(d => d).OrderBy(s => s.Gia).Take(3);
+            return PartialView(sp);
+        }
     }
-    
 }
+    

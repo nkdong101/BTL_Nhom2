@@ -141,9 +141,9 @@
                                     <li class="ul_menu_pc_border_active @(ViewContext.RouteData.Values["Action"].ToString() == "Index"? "active" : "")">
                                         <a title="Danh mục" href="@Url.Action("Index","Home")">Danh mục </a>
                                         <ul class="mn_child ul_menu_pc_ul">
-                                            @*@{
+                                            @{
                                                 Html.RenderAction("_DanhMuc", "Home");
-                                            }*@
+                                            }
                                         </ul>
                                     </li>
                                     <li class="ul_menu_pc_border_active">
