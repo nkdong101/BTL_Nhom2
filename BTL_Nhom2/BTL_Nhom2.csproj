@@ -242,7 +242,11 @@
     <Content Include="Views\Shared\_SearchDanhMuc.cshtml" />
     <Content Include="Views\Shared\_SP_BanChay.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+
+    <Content Include="Views\Home\Signin.cshtml" />
+
     <Content Include="Views\Home\Home.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

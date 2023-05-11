@@ -110,5 +110,35 @@ namespace BTL_Nhom2.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Signin()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Signin([Bind(Include = "TenTaiKhoan,MatKhau,Quyen,TinhTrang,TenKhachHang,Email,SoDienThoai,DiaChi")] TaiKhoan taiKhoan)
+        {
+            if (ModelState.IsValid)
+            {
+                var taiKhoanFind = db.TaiKhoans.Find(taiKhoan.TenTaiKhoan);
+                if (taiKhoanFind == null)
+                {
+                    db.TaiKhoans.Add(taiKhoan);
+                    db.SaveChanges();
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    ViewBag.ErrorSign = "Tên tài khoản trùng. Vui lòng nhập tên khác";
+                }
+            }
+            //ViewBag.Infor = taiKhoan.ToString();
+            return View(taiKhoan);
+        }
     }
+    
 }
