@@ -112,7 +112,7 @@ namespace BTL_Nhom2.Controllers
         }
 
         [HttpGet]
-        public ActionResult Signin()
+        public ActionResult Signup()
         {
 
             return View();
@@ -120,7 +120,7 @@ namespace BTL_Nhom2.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Signin([Bind(Include = "TenTaiKhoan,MatKhau,Quyen,TinhTrang,TenKhachHang,Email,SoDienThoai,DiaChi")] TaiKhoan taiKhoan)
+        public ActionResult Signup([Bind(Include = "TenTaiKhoan,MatKhau,Quyen,TinhTrang,TenKhachHang,Email,SoDienThoai,DiaChi")] TaiKhoan taiKhoan)
         {
             if (ModelState.IsValid)
             {
