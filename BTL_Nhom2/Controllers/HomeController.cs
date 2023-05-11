@@ -134,20 +134,26 @@ namespace BTL_Nhom2.Controllers
                     Session["TenTaiKhoan"] = user.FirstOrDefault().TenTaiKhoan;
                     return RedirectToAction("Home");
                 }
-                Session["TenTaiKhoan"] = user.FirstOrDefault().TenTaiKhoan;
-                if (user.First().Quyen == 1)
-                {
-                    Session["Quyen"] = "Admin";
+                //Session["TenTaiKhoan"] = user.FirstOrDefault().TenTaiKhoan;
+                //if (user.First().Quyen == 1)
+                //{
+                //    Session["Quyen"] = "Admin";
 
-                }
+                //}
 
-                return RedirectToAction("Index", "Admin/Home");
+                //return RedirectToAction("Index", "Admin/Home");
             }
             else
             {
                 ViewBag.FailedMessage = "Thông tin đăng nhập không chính xác!";
             }
             return View();
+        }
+
+        public ActionResult signOut()
+        {
+            Session.Clear();
+            return RedirectToAction("Login");
         }
 
         [HttpGet]
