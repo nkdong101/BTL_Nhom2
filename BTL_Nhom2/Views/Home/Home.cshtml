@@ -16,7 +16,7 @@
                             <span style="margin-left:20px"><a href="@Url.Action("Index","Home",new { sortOrder = "giaGiam"})">Giá từ cao xuống thấp</a></span>
                         </div>
                         <div>
-                            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                            @Html.PagedListPager(Model, page => Url.Action("Home", new { page }))
                         </div>
                     </div>
                     <div itemscope>
@@ -53,7 +53,7 @@
                         </ul>
                     </div>
                     <div class="paging_news">
-                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                        @Html.PagedListPager(Model, page => Url.Action("Home", new { page }))
                     </div>
                 </div>
             </div>

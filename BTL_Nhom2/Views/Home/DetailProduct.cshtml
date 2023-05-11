@@ -1,0 +1,146 @@
+﻿@model BTL_Nhom2.Models.SanPham
+
+@{
+    ViewBag.Title = "DetailProduct";
+    string path = "~/wwwroot/image/" + Model.Anh;
+}
+
+
+<section class="section_all" id="page_bg">
+    <div class="div_index" id="page_width">
+        <article class="article_center">
+            <div class="index_info">
+                <div class="index_1" style="margin-bottom:0px">
+                    <div class="breadcrumbs breadcrumb_url">
+                        <div itemprop="itemListElement">
+                            <a href="@Url.Action("Index","Home")" itemprop="item">
+                                <span itemprop="name">Trang chủ</span>
+                            </a>›
+                        </div>
+                        <div itemprop="itemListElement">
+                            <a href="@Url.Action("Index","Home")" itemprop="item">
+                                <span itemprop="name">Sản phẩm</span>
+                            </a>›
+                        </div>
+                        <div itemprop="itemListElement">
+                            <a href="#" itemprop="item"><span itemprop="name">@Model.TenSP</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="section_all" id="page_bg">
+    <div class="div_index" id="page_width">
+        <article class="article_center">
+            <div class="index_info">
+                <div class="index_2">
+                    <div class="index_2_left" id="float_right">
+                        <div itemscope itemtype="http://schema.org/Product" class="detail_P02">
+                            <div class="detail_P02_img  gallery clearfix">
+                                <dl>
+                                    <a style="text-transform:none !important;" href="#"><img src="@Url.Content(path)" alt="@Url.Content(Model.TenSP)" /></a>
+                                    <p class="Anh" style="display:none">@Model.Anh</p>
+                                </dl>
+
+                            </div>
+
+                            <div class="detail_P02_content">
+                                <h1 style="text-transform:none !important;" class="TenSP">@Url.Content(Model.TenSP) </h1>
+                                <hr size="1">
+                                <dl class="detail_P02_rating">
+                                    <div class="detail_P02_rating_box">
+                                        <div style="width:1371.1%;" class="rating"></div>
+                                    </div>
+                                </dl>
+                                <i style="font-size:90%; line-height:30px">
+                                    (128 Lượt đánh giá) - 5631 lượt mua
+                                </i>
+                                <hr size="1">
+                                <div class="detail_P02_left">
+                                    <p>Mã sản phẩm: <strong class="MaSP">@Model.MaSP</strong></p>
+                                    <span itemprop="name">Nhà sản xuất</span>
+                                    : <strong itemprop="value" class="NhaSX">@Model.NhaSX</strong>
+                                    </p>
+                                    <span itemprop="name">Tình trạng</span>
+                                    @{
+                                        int sl = Model.SoLuongTon;
+                                        var tt = sl > 0 ? "Có sẵn " + sl + " sản phẩm" : "Hết hàng";
+                                    }   <p class="SoLuongTon" style="display: none;">@Model.SoLuongTon</p>
+                                    : <p>
+                                        <strong itemprop="value">@tt</strong>
+                                    </p>
+                                    <span itemprop="name">Chất lượng</span>
+                                    : <strong itemprop="value" class="ChatLuong">@Model.ChatLuong</strong>
+                                    </p>
+                                    <span itemprop="name">Thể tích</span>
+                                    : <strong itemprop="value">@Model.TrongLuong ml</strong>
+                                    <p class="TrongLuong" style="display: none;">@Model.TrongLuong</p>
+                                    </p>
+                                    <p><span>Giá bán: </span></p>
+                                    <p style="float:left; width:280px; margin-top:5px">
+                                        @{
+                                            string gia = string.Format("{0:0,000}", Model.Gia);
+                                        }
+                                    <p class="Gia" style="display: none;">@Model.Gia</p>
+                                    <strong class="detail_P02_gb">@gia VNĐ</strong>
+                                    <strong itemprop="priceCurrency" content="VND"></strong>
+                                    <a href="#"><span class="detail_P02_cart btn-giohang">Đặt Mua</span></a>
+                                    </p>
+                                </div>
+
+                                <div class="detail_P02_right">
+                                    <a title="Hướng dẫn mua hàng" href="#"><p><strong>&bull;</strong> Hướng dẫn mua hàng</p> </a>
+                                    <a title="Hướng dẫn thanh toán" href="#"><p><strong>&bull;</strong> Hướng dẫn thanh toán</p> </a>
+                                    <a title="Phương thức giao hàng" href="#"><p><strong>&bull;</strong> Phương thức giao hàng</p> </a>
+                                    <a title="Thông tin khuyến mãi" href="#"><p><strong>&bull;</strong> Thông tin khuyến mãi</p> </a>
+                                    <a title="Chính sách đổi trả" href="#"><p><strong>&bull;</strong> Chính sách đổi trả</p> </a>
+                                </div>
+                                <hr size="1">
+                                <div class="description" itemprop="description"><h2>@Model.MoTa</h2></div>
+                                <div class="detail_P02_share">
+                                </div>
+                            </div>
+                            @*@{
+                                    string mota = Model.MoTa;
+                                }
+                                <p>Mô tả: @mota</p>*@
+                        </div>
+
+                        <!--
+                        <div id="fb-root"></div>
+
+                        <div style="padding-top:20px">
+                        <div class="fb-comments" data-href="https://tinhdaulachampa.net/254-may-khuech-tan-tinh-dau-mkt20-h-cam-tu-cau-hong.html" data-width="100%" data-num-posts="20"></div>
+                        </div>  -->
+                        <div style="float:left; width:100%; margin-top:20px">
+                        </div>
+                    </div>
+                    <div class="index_2_right" id="float_left">
+                        <div class="left_top_new">
+                            <ul class="menu_left_03">
+                                <h4>Danh mục sản phẩm</h4>
+                                <li>
+                                    <ul class="menu_left_03_ul">
+                                        @{
+                                            Html.RenderAction("_DanhMuc", "Home");
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="foreach_PTOP">
+                                <h4>Sản phẩm giá rẻ</h4>
+                                @{
+                                    Html.RenderAction("_SP_BanChay", "Home");
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+<script src="~/wwwroot/js/index.js"></script>
