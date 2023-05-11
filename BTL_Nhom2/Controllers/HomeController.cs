@@ -93,7 +93,7 @@ namespace BTL_Nhom2.Controllers
                     Session["TaiKhoan"] = user.FirstOrDefault();
                     Session["TenKhachHang"] = user.FirstOrDefault().TenKhachHang;
                     Session["TenTaiKhoan"] = user.FirstOrDefault().TenTaiKhoan;
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Home");
                 }
                 Session["TenTaiKhoan"] = user.FirstOrDefault().TenTaiKhoan;
                 if (user.First().Quyen == 1)
