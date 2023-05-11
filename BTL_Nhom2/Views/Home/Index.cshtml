@@ -1,7 +1,93 @@
-﻿
-@{
-    ViewBag.Title = "Index";
+﻿@model PagedList.IPagedList<BTL_Nhom2.Models.SanPham>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+
+<section class="section_all" id="page_bg">
+    <div class="div_index" id="page_width">
+        <article class="article_center">
+            <div class="index_info">
+                <div class="index_1">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span><a href="@Url.Action("Index","Home",new { sortOrder = "sortSL"})">Sản phẩm còn nhiều</a></span>
+                            <span style="margin-left:20px;"><a href="@Url.Action("Index","Home",new { sortOrder = "giaTang"})">Giá từ thấp đến cao</a></span>
+                            <span style="margin-left:20px"><a href="@Url.Action("Index","Home",new { sortOrder = "giaGiam"})">Giá từ cao xuống thấp</a></span>
+                        </div>
+                        <div>
+                            @Html.PagedListPager(Model, page => Url.Action("Index", new
+                            {
+                                page,
+                                sortOrder = Request.QueryString["sortOrder"],
+                                madm = Request.QueryString["madm"],
+                                beginPrice = Request.QueryString["beginPrice"],
+                                endPrice = Request.QueryString["endPrice"]
+                            }))
+                        </div>
+                    </div>
+                    <div itemscope>
+                        <ul class="foreach_P50" id="">
+                            <div>
+                                <h1 itemprop="name">
+                                    Nước hoa cao cấp - Trân trọng từng cảm xúc mùi hương của bạn
+                                </h1>
+                            </div>
+                            @foreach (var item in Model)
+                            {
+                                <li class="foreach_P50_li">
+                                    <dl class="foreach_P50_img">
+                                        <a href="@Url.Action("DetailProduct", "Home", new { masp=item.MaSP })">
+                                            @{
+                                                string path = "~/wwwroot/image/" + item.Anh;
+                                            }
+                                            <img src="@Url.Content(path)" alt="@Url.Content(item.TenSP)" width="350" height="210" />
+                                        </a>
+                                    </dl>
+                                    <dl class="foreach_P50_title">
+                                        <a style="text-transform:none !important;"
+                                           href="@Url.Action("DetailProduct", "Home", new { masp=item.MaSP })">@Url.Content(item.TenSP)</a>
+                                    </dl>
+                                    <dl class="foreach_P50_price">
+                                        <p>
+                                            @{
+                                                string gia = string.Format("{0:0,000}", item.Gia);
+                                            }
+                                            <span class="price-custom">@Url.Content(@gia) VND</span>
+                                        </p>
+                                    </dl>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                    <div class="paging_news">
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new
+                        {
+                            page,
+                            sortOrder = Request.QueryString["sortOrder"],
+                          madm = Request.QueryString["madm"],
+                            beginPrice = Request.QueryString["beginPrice"],
+                            endPrice = Request.QueryString["endPrice"]
+                        }))
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+@section Scripts {
+    @if (ViewBag.Message != null)
+    {
+        <script>
+            alert("Cập nhật mật khẩu thành công");
+        </script>
+        ViewBag.Message = null;
+    }
+    @if (ViewBag.Message1 != null)
+    {
+        <script>
+            alert("Cập nhật thông tin tài khoản thành công");
+        </script>
+        ViewBag.Message1 = null;
+    }
 }
-
-<h2>Index</h2>
-

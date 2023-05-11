@@ -119,25 +119,17 @@
                                 <img src="/wwwroot/image/gio_hang.png" />
                             </div>
                             <div class="div_search">
-                                @using (Html.BeginForm())
-                                {
-                                    @Html.TextBox("searchString")
-                                    <input type="submit"
-                                           placeholder="Nhập nôi dung tìm kiếm"
-                                           name="button"
-                                           id="button"
-                                           value="TÌM KIẾM"
-                                           class="div_search_submit" />
-                                }
+                                  
+                             @* seach input place *@
                             </div>
                             <div class="boloc">
                                 <ul class="ul_menu_pc" id="none_display_mb">
                                     <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Home"? "active" : "") ul_menu_pc_border_active">
                                         <a href="@Url.Action("Home","Home")" title="Trang chủ">Trang chủ</a>
                                     </li>
-                                    <li class="ul_menu_pc_border_active @(ViewContext.RouteData.Values["Action"].ToString() == "About"? "active" : "")">
+                                    @*<li class="ul_menu_pc_border_active @(ViewContext.RouteData.Values["Action"].ToString() == "About"? "active" : "")">
                                         <a title="Giới thiệu" href="@Url.Action("About","Home")">Giới thiệu </a>
-                                    </li>
+                                    </li>*@
                                     <li class="ul_menu_pc_border_active @(ViewContext.RouteData.Values["Action"].ToString() == "Index"? "active" : "")">
                                         <a title="Danh mục" href="@Url.Action("Index","Home")">Danh mục </a>
                                         <ul class="mn_child ul_menu_pc_ul">
