@@ -29,8 +29,9 @@
         a = a*item.SoLuongMua;
         b = string.Format("{0:0,000}", @a);
             } @b Đ  &nbsp;
+
         </strong></p>
-            <p> <a href="#" class="btn-xoagiohang"><span>» Xóa</span></a></p>
+            <p class="xoa"> <a href="#" class="btn-xoagiohang" ><span>» Xóa</span></a></p>
         </td>
     </tr>
     tongtien += a;
@@ -42,7 +43,7 @@
     <td colspan="2" align="left">
         @if (Session["GioHang"] != null)
         {
-            <center><button class="dita_register_login btn-xoaAll" style="background: red;border: none;">Xóa giỏ hàng</button></center>
+            <center><button class="dita_register_login btn-xoaAll"  style="background: red;border: none; cursor:pointer;">Xóa giỏ hàng</button></center>
         }
         <div style="float:left; border:0px solid #F00; width:100%; height:auto; ">
             <div style="float:left; padding:10px">

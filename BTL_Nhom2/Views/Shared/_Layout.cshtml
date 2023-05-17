@@ -40,11 +40,10 @@
             display: flex;
             align-items: center;
             background: #f3f3f3;
-            box-shadow: 0 0 2px #999999;
-            height: 50px;
-            padding: 5px 5px 0px 5px;
+            box-shadow: 0 0 0 #999999;
+            padding: 0px 5px;
             width: auto;
-            height: inherit;
+            height: 55px !important;
         }
 
 
@@ -109,7 +108,7 @@
                         </div>
                         <div class="index_header_right" style="height: 55px !important">
                             <div class="shopping-cart">
-                                <a href="@Url.Action(" GioHang", "Home" )" id="GioHang">
+                                <a href="@Url.Action("GioHang", "Home" )" id="GioHang">
                                     @if (Session["SoLuongSPGioHang"] == null)
                                     {
                                         <strong>0</strong>
@@ -120,7 +119,7 @@
                                     }
 
                                 </a>
-                                <a href="@Url.Action(" GioHang", "Home" )">
+                                <a href="@Url.Action("GioHang", "Home" )">
                                     <img src="/wwwroot/image/gio_hang.png" />
                                 </a>
                             </div>
@@ -179,6 +178,8 @@
             else
             {
                 <div class="dropdown-content">
+                    <a href="@Url.Action("ChangePassword","Home", new {TenTK= Session["TenTaiKhoan"] })">Đổi mật khẩu</a>
+                    <a href="@Url.Action("ViewOrder","Home",new {TenTK= Session["TenTaiKhoan"]})">Xem đơn hàng</a>
                     <a href="@Url.Action("signOut","Home")">Đăng xuất</a>
                 </div>
             }

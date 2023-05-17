@@ -212,6 +212,114 @@ namespace BTL_Nhom2.Controllers
             var sp = db.SanPhams.Select(d => d).OrderBy(s => s.Gia).Take(3);
             return PartialView(sp);
         }
+
+        public ActionResult GioHang()
+        {
+            if (Session["TenTaiKhoan"] == null)
+                return RedirectToAction("Login");
+            return View();
+        }
+
+        public PartialViewResult _CT_GioHang()
+        {
+            List<SanPhamDTO> listSP = new List<SanPhamDTO>();
+            if (Session["GioHang"] != null)
+            {
+                listSP = (List<SanPhamDTO>)Session["GioHang"];
+            }
+            return PartialView(listSP);
+        }
+        //Xem don hang
+        //public ActionResult ViewOrder(string TenTK)
+        //{
+        //    var carts = db.GioHangs.Where(g => g.TenTaiKhoan.Equals(TenTK)).ToList();
+        //    var hds = db.HoaDons;
+        //    var receipts = from x in carts join y in hds on x.MaGioHang equals y.MaGioHang select y;
+        //    return View(receipts);
+        //}
+
+        //public ActionResult DetailReceipt(int MaHD)
+        //{
+        //    HoaDon hd = db.HoaDons.Find(MaHD);
+        //    return View(hd);
+        //}
+
+        //[HttpGet]
+        //public ActionResult CancelOrder(int MaHD)
+        //{
+        //    HoaDon hd = db.HoaDons.Find(MaHD);
+        //    hd.TinhTrang = "Đã hủy";
+        //    db.SaveChanges();
+        //    return RedirectToAction("ViewOrder", new { TenTK = Session["TenTaiKhoan"] });
+        //}
+
+
+        public ActionResult DatHang(string DcNhanHang, string GhiChu)
+        {
+            List<SanPhamDTO> ListSP = new List<SanPhamDTO>();
+            if (Session["GioHang"] != null)
+            {
+                ListSP = (List<SanPhamDTO>)Session["GioHang"];
+            }
+            if (Session["TenTaiKhoan"] != null)
+            {
+                GioHang giohang = new GioHang();
+                giohang.TenTaiKhoan = (string)Session["TenTaiKhoan"];
+                db.GioHangs.Add(giohang);
+                db.SaveChanges();
+                int generatedId = giohang.MaGioHang;
+                foreach (var item in ListSP)
+                {
+                    ChiTietGioHang ct = new ChiTietGioHang();
+                    ct.MaGioHang = generatedId;
+                    ct.MaSP = item.MaSP;
+                    ct.SoLuongMua = item.SoLuongMua;
+                    ct.Gia = item.Gia;
+                    db.ChiTietGioHangs.Add(ct);
+                    db.SaveChanges();
+                }
+                HoaDon hd = new HoaDon();
+                hd.NgayDat = DateTime.Now;
+                hd.TinhTrang = "Chờ xác nhận";
+                hd.PhiShip = 15000;
+                hd.GhiChu = GhiChu;
+                hd.MaGioHang = generatedId;
+                if (DcNhanHang != "")
+                {
+                    hd.DcNhanHang = DcNhanHang;
+                }
+                else
+                {
+                    TaiKhoan tk = Session["TaiKhoan"] as TaiKhoan;
+                    hd.DcNhanHang = tk.DiaChi;
+                }
+
+                db.HoaDons.Add(hd);
+                db.SaveChanges();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+            Session["GioHang"] = null;
+            Session["SoLuongSPGioHang"] = null;
+            return RedirectToAction("Home");
+        }
+
+        public PartialViewResult _DC_GiaoHang()
+        {
+            TaiKhoan tk = (TaiKhoan)Session["TaiKhoan"];
+            if (tk == null)
+            {
+                return PartialView();
+            }
+            else
+            {
+                return PartialView(tk);
+            }
+        }
+
+
     }
 }
     
