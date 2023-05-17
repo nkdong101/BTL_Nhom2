@@ -9,6 +9,7 @@
     <script src="~/wwwroot/js/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
+    
     <link rel="stylesheet" href="~/wwwroot/css/theme/ditacom_index.css" />
     <link rel="stylesheet" href="~/wwwroot/css/theme/ditacom_pulic.css" />
     <link rel="stylesheet" href="~/wwwroot/css/index.css" />
@@ -16,46 +17,50 @@
     @RenderSection("ImportLibraryLogin", required: false)
     <style>
         .active {
-            background: green;
+        background: green;
         }
 
-            .active:hover {
-                background: green !important;
-            }
+        .active:hover {
+        background: green !important;
+        }
 
-            .active a {
-                color: white !important;
-            }
+        .active a {
+        color: white !important;
+        }
 
         .logo_web {
-            position: relative;
-            padding: 0;
-            margin: 0;
-            width: auto;
-            margin: 0 auto;
+        position: relative;
+        padding: 0;
+        margin: 0;
+        width: auto;
+        margin: 0 auto;
         }
 
         .shopping-cart {
-            display: flex;
-            align-items: center;
-            background: #f3f3f3;
-            box-shadow: 0 0 2px #999999;
-            height: 50px;
-            padding: 5px 5px 0px 5px;
-            width: 127px;
+        display: flex;
+        align-items: center;
+        background: #f3f3f3;
+        box-shadow: 0 0 2px #999999;
+        height: 50px;
+        padding: 5px 5px 0px 5px;
+        width: auto;
+        height: inherit;
         }
 
+       
+
         @@media (min-width: 980px) and (max-width: 1080px) {
-            .logo_web {
-                width: 1000px;
-            }
+        .logo_web {
+        width: 1000px;
+        }
         }
 
         @@media (min-width: 1080px) {
-            .logo_web {
-                width: 1200px;
-            }
+        .logo_web {
+        width: 1200px;
         }
+        }
+
     </style>
 </head>
 <body class="bg_full">
@@ -95,7 +100,7 @@
     <section class="section_all menu_full" id="page_bg">
         <div class="div_index" id="page_width">
             <article class="article_center">
-                <div class="index_info menu_full">
+                <div class="index_info menu_full" style="height: 55px !important;">
                     <div class="index_header">
                         <div class="index_header_left">
                             <a href="#"
@@ -103,19 +108,20 @@
                                style="float: left;">
                             </a>
                         </div>
-                        <div class="index_header_right" style="height: auto !important">
+                        <div class="index_header_right" style="height: 55 !important">
                             <div class="shopping-cart">
-                                <a href="@Url.Action("GioHang", "Home")" id="GioHang">
+                                <a href="@Url.Action(" GioHang", "Home" )" id="GioHang">
                                     @if (Session["SoLuongSPGioHang"] == null)
                                     {
-                                        <span>Giỏ hàng</span> <strong>0</strong>
+                                    <strong>0</strong>
                                     }
                                     else
                                     {
-                                        <span>Giỏ hàng</span> <strong>@Session["SoLuongSPGioHang"]</strong>
+                                    <strong>@Session["SoLuongSPGioHang"]</strong>
                                     }
 
                                 </a>
+                                
                                 <img src="/wwwroot/image/gio_hang.png" />
                             </div>
                             <div class="div_search">
@@ -166,14 +172,13 @@
             @if (Session["TenTaiKhoan"] == null)
             {
                 <div class="dropdown-content">
-                    <a href="@Url.Action("Signin","Home")">Đăng ký</a>
+                    <a href="@Url.Action("Signup","Home")">Đăng ký</a>
                     <a href="@Url.Action("Login","Home")">Đăng nhập</a>
                 </div>
             }
             else
             {
-                <div class="dropdown-content">
-                    
+                <div class="dropdown-content">                    
                     <a href="@Url.Action("signOut","Home")">Đăng xuất</a>
                 </div>
             }

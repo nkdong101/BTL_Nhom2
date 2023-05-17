@@ -194,6 +194,7 @@
     <Content Include="wwwroot\image\Dior_joy.jpg" />
     <Content Include="wwwroot\image\Dior_Miss.jpg" />
     <Content Include="wwwroot\image\Dior_Rose.jpg" />
+    <Content Include="wwwroot\image\giohang.png" />
     <Content Include="wwwroot\image\gio_hang.png" />
     <Content Include="wwwroot\image\Gucci_Bloom.jpg" />
     <Content Include="wwwroot\image\Gucci_Flora.jpg" />
