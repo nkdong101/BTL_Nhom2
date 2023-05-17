@@ -26,7 +26,7 @@
         [RegularExpression("^[0-9]*\\.?[0-9]*$", ErrorMessage = "Giá sản phẩm phải là một số.")]
         [DisplayFormat(DataFormatString = "{0:#,###}")]
 
-        public decimal? Gia { get; set; }
+        public decimal Gia { get; set; }
 
         public virtual GioHang GioHang { get; set; }
 

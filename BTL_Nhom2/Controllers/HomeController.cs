@@ -229,29 +229,29 @@ namespace BTL_Nhom2.Controllers
             }
             return PartialView(listSP);
         }
-        //Xem don hang
-        //public ActionResult ViewOrder(string TenTK)
-        //{
-        //    var carts = db.GioHangs.Where(g => g.TenTaiKhoan.Equals(TenTK)).ToList();
-        //    var hds = db.HoaDons;
-        //    var receipts = from x in carts join y in hds on x.MaGioHang equals y.MaGioHang select y;
-        //    return View(receipts);
-        //}
+       // Xem don hang
+        public ActionResult ViewOrder(string TenTK)
+        {
+            var carts = db.GioHangs.Where(g => g.TenTaiKhoan.Equals(TenTK)).ToList();
+            var hds = db.HoaDons;
+            var receipts = from x in carts join y in hds on x.MaGioHang equals y.MaGioHang select y;
+            return View(receipts);
+        }
 
-        //public ActionResult DetailReceipt(int MaHD)
-        //{
-        //    HoaDon hd = db.HoaDons.Find(MaHD);
-        //    return View(hd);
-        //}
+        public ActionResult DetailReceipt(int MaHD)
+        {
+            HoaDon hd = db.HoaDons.Find(MaHD);
+            return View(hd);
+        }
 
-        //[HttpGet]
-        //public ActionResult CancelOrder(int MaHD)
-        //{
-        //    HoaDon hd = db.HoaDons.Find(MaHD);
-        //    hd.TinhTrang = "Đã hủy";
-        //    db.SaveChanges();
-        //    return RedirectToAction("ViewOrder", new { TenTK = Session["TenTaiKhoan"] });
-        //}
+        [HttpGet]
+        public ActionResult CancelOrder(int MaHD)
+        {
+            HoaDon hd = db.HoaDons.Find(MaHD);
+            hd.TinhTrang = "Đã hủy";
+            db.SaveChanges();
+            return RedirectToAction("ViewOrder", new { TenTK = Session["TenTaiKhoan"] });
+        }
 
 
         public ActionResult DatHang(string DcNhanHang, string GhiChu)

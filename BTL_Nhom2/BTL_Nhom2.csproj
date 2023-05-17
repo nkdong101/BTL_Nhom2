@@ -247,10 +247,11 @@
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Home\DetailProduct.cshtml" />
     <Content Include="Views\Home\GioHang.cshtml" />
+    <Content Include="Views\Home\ViewOrder.cshtml" />
+    <Content Include="Views\Home\DetailReceipt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\GioHang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
