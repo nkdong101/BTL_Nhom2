@@ -319,39 +319,39 @@ namespace BTL_Nhom2.Controllers
             }
         }
 
-        //[HttpGet]
-        //public ActionResult EditAccount(string TenTK)
-        //{
-        //    TaiKhoan taiKhoan = db.TaiKhoans.Find(TenTK);
-        //    return View(taiKhoan);
-        //}
+        [HttpGet]
+        public ActionResult EditAccount(string TenTK)
+        {
+            TaiKhoan taiKhoan = db.TaiKhoans.Find(TenTK);
+            return View(taiKhoan);
+        }
 
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult EditAccount([Bind(Include = "TenTaiKhoan,MatKhau,Quyen,TinhTrang," +
-        //    "TenKhachHang,Email,SoDienThoai,DiaChi")] TaiKhoan taiKhoan, string PassValidate)
-        //{
-        //    string Pass = db.TaiKhoans.AsNoTracking().
-        //        Where(t => t.TenTaiKhoan.Equals(taiKhoan.TenTaiKhoan)).
-        //        FirstOrDefault().MatKhau;
-        //    if (Pass.Equals(PassValidate))
-        //    {
-        //        if (ModelState.IsValid)
-        //        {
-        //            db.Entry(taiKhoan).State = EntityState.Modified;
-        //            db.SaveChanges();
-        //            TempData["message1"] = "Thành công";
-        //            return RedirectToAction("Index");
-        //        }
-        //        ViewBag.Message2 = "Msg2";
-        //        return View(taiKhoan);
-        //    }
-        //    else
-        //    {
-        //        ViewBag.Message3 = "Msg3";
-        //        return View(taiKhoan);
-        //    }
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditAccount([Bind(Include = "TenTaiKhoan,MatKhau,Quyen,TinhTrang," +
+            "TenKhachHang,Email,SoDienThoai,DiaChi")] TaiKhoan taiKhoan, string PassValidate)
+        {
+            string Pass = db.TaiKhoans.AsNoTracking().
+                Where(t => t.TenTaiKhoan.Equals(taiKhoan.TenTaiKhoan)).
+                FirstOrDefault().MatKhau;
+            if (Pass.Equals(PassValidate))
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Entry(taiKhoan).State = EntityState.Modified;
+                    db.SaveChanges();
+                    TempData["message1"] = "Thành công";
+                    return RedirectToAction("Index");
+                }
+                ViewBag.Message2 = "Msg2";
+                return View(taiKhoan);
+            }
+            else
+            {
+                ViewBag.Message3 = "Msg3";
+                return View(taiKhoan);
+            }
+        }
 
     }
 }
