@@ -33,6 +33,9 @@ namespace BTL_Nhom2.Controllers
             }
             if (sortOrder != null)
             {
+
+
+
                 switch (sortOrder)
                 {
                     case "sortSL":
@@ -42,6 +45,8 @@ namespace BTL_Nhom2.Controllers
                     case "giaGiam":
                         sp = sp.OrderByDescending(s => s.Gia).ToList(); break;
                 }
+
+
             }
             if (beginPrice > 0 && endPrice == 0)
             {
