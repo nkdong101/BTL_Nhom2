@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace BTL_Nhom13.Areas.Admin
+namespace BTL_Nhom2.Areas.Admin
 {
     public class AdminAreaRegistration : AreaRegistration 
     {
@@ -17,7 +17,7 @@ namespace BTL_Nhom13.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Login", controllers="Home", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional }
             );
         }
     }
