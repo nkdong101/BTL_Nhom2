@@ -104,8 +104,16 @@
                                 </a>
                             </div>
                             <div class="div_search">
-
-                                @* seach input place *@
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.TextBox("searchString")
+                                    <input type="submit"
+                                           placeholder="Nhập nôi dung tìm kiếm"
+                                           name="button"
+                                           id="button"
+                                           value="TÌM KIẾM"
+                                           class="div_search_submit" />
+                                }
                             </div>
                             <div class="boloc">
                                 <ul class="ul_menu_pc" id="none_display_mb">
