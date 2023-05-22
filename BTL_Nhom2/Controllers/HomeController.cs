@@ -139,14 +139,7 @@ namespace BTL_Nhom2.Controllers
                     Session["TenTaiKhoan"] = user.FirstOrDefault().TenTaiKhoan;
                     return RedirectToAction("Home");
                 }
-                //Session["TenTaiKhoan"] = user.FirstOrDefault().TenTaiKhoan;
-                //if (user.First().Quyen == 1)
-                //{
-                //    Session["Quyen"] = "Admin";
-
-                //}
-
-                //return RedirectToAction("Index", "Admin/Home");
+                
             }
             else
             {
