@@ -136,6 +136,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminDanhMucsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -433,6 +434,10 @@
     <Content Include="Areas\Admin\Assets\scss\material-dashboard\_tooltip.scss" />
     <Content Include="Areas\Admin\Assets\scss\material-dashboard\_type.scss" />
     <Content Include="Areas\Admin\Assets\scss\material-dashboard\_variables.scss" />
+    <Content Include="Areas\Admin\Views\AdminDanhMucs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminDanhMucs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminDanhMucs\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminDanhMucs\Category.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

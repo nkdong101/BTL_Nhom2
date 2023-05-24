@@ -1,5 +1,5 @@
 ﻿<div class="sidebar"
-     data-color="purple"
+     data-color="azure"
      data-background-color="white"
      data-image="img/sidebar-1.jpg">
     <!--
@@ -30,7 +30,7 @@
             </li>
             <li class="@(ViewContext.RouteData.Values["controller"].ToString()=="AdminDanhMucs"?
                 "nav-item active" : "nav-item")">
-                <a class="nav-link" href="@Url.Action("Category", "AdminDanhMucs")">
+                <a class="nav-link" href="@Url.Action("Category","AdminDanhMucs")">
                     <i class="material-icons">category</i>
                     <p>Danh mục</p>
                 </a>
