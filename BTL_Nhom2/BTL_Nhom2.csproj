@@ -137,6 +137,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminDanhMucsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminHoaDonsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -438,6 +439,10 @@
     <Content Include="Areas\Admin\Views\AdminDanhMucs\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AdminDanhMucs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminDanhMucs\Category.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHoaDons\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHoaDons\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHoaDons\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminHoaDons\Receipt.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
