@@ -138,6 +138,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminDanhMucsController.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminHoaDonsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminSanPhamsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -443,6 +444,11 @@
     <Content Include="Areas\Admin\Views\AdminHoaDons\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHoaDons\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\AdminHoaDons\Receipt.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSanPhams\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSanPhams\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSanPhams\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSanPhams\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSanPhams\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
