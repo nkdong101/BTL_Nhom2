@@ -1,6 +1,7 @@
 ﻿using BTL_Nhom2.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -50,6 +51,41 @@ namespace BTL_Nhom2.Areas.Admin.Controllers
             ViewBag.tongTienTrongNam = tongTienTrongNam;
 
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Index", "Home", new { area = "" });
+        }
+        [HttpGet]
+        public ActionResult ChangePassword(string tenTK)
+        {
+            var account = db.TaiKhoans.Find(tenTK);
+            return View(account);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ChangePassword([Bind(Include = "TenTaiKhoan,MatKhau,Quyen,TinhTrang,TenKhachHang,Email,SoDienThoai,DiaChi")] TaiKhoan taiKhoan)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    db.Entry(taiKhoan).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                if (Session["Quyen"].Equals("Admin"))
+                    return RedirectToAction("Account", "AdminTaiKhoans");
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = "Lỗi nhập dữ liệu! " + ex.Message;
+                return View(taiKhoan);
+            }
         }
     }
 }
