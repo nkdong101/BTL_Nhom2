@@ -1,0 +1,104 @@
+﻿@model PagedList.IPagedList<BTL_Nhom2.Models.TaiKhoan>
+@using PagedList.Mvc;
+@using System.Text;
+@{
+    ViewBag.Title = "Customer";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@section Title{
+    Khách hàng
+}
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+<style>
+    .normal-text {
+        text-transform: none;
+    }
+
+    .pagination {
+        margin: 0px 0px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+        </div>
+        <div class="col-sm-6" style="text-align:right">
+            @Html.PagedListPager(Model, page => Url.Action("Customer", new { page }))
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title">Danh sách khách hàng</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-primary">
+                            <th>Tên tài khoản</th>
+                            <th>Mật khẩu</th>
+                            <th>Tên khách hàng</th>
+                            <th>Email</th>
+                            <th>Tình trạng</th>
+                            <th>Hành động</th>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>@item.TenTaiKhoan</td>
+                                    @{
+                                        int lengthPass = item.MatKhau.Count();
+                                        StringBuilder pattern = new StringBuilder();
+                                        for (int i = 0; i < lengthPass; i++)
+                                        {
+                                            pattern.Append("\u2022");
+                                        }
+                                    }
+                                    <td>@Html.Raw(pattern)</td>
+                                    <td>@item.TenKhachHang</td>
+                                    <td>@item.Email</td>
+                                    @*<td><a href="#" class="btn-active" data-id="@item.TenTaiKhoan">@(item.TinhTrang == true ? "Kích hoạt" : "Khóa")</a></td>*@
+                                    <td>
+                                        @if (item.TinhTrang == true)
+                                        {
+                                            <div class="togglebutton">
+                                                <label>
+                                                    <input type="checkbox" checked="checked" class="btn-active" data-id="@item.TenTaiKhoan">
+                                                    <span class="toggle"></span>
+                                                </label>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div class="togglebutton">
+                                                <label>
+                                                    <input type="checkbox" class="btn-active" data-id="@item.TenTaiKhoan">
+                                                    <span class="toggle"></span>
+                                                </label>
+                                            </div>
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Chi tiết", "Details", new { id = item.TenTaiKhoan.Trim() }, new { @class = "btn btn-sm btn-primary normal-text" })
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: right">
+        @Html.PagedListPager(Model, page => Url.Action("Customer", new { page }))
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/Areas/Admin/Assets/js/controller/tkkhachhang_status.js"></script>
+}
