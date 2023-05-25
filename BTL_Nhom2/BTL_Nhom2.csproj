@@ -448,7 +448,7 @@
     <Content Include="Areas\Admin\Views\AdminSanPhams\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\AdminSanPhams\Details.cshtml" />
     <Content Include="Areas\Admin\Views\AdminSanPhams\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\AdminSanPhams\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\AdminSanPhams\Product.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -488,7 +488,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
